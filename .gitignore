@@ -1,0 +1,15 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Generated scan results
+scan_results.txt
+
+# VS Code settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
