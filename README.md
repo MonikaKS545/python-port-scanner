@@ -1,5 +1,7 @@
 # Python Port Scanner
 
+## 📌 About the Project
+
 A simple Python-based TCP Port Scanner that scans a target IP address or domain for open ports within a user-defined port range.
 
 This project was built as part of my Ethical Hacking learning journey to understand networking, sockets, and Python programming.
@@ -115,6 +117,12 @@ Results saved to scan_results.txt
 
 ---
 
+## ⚠️ Disclaimer
+
+This tool is developed for educational purposes only.
+Use it only on systems you own or have explicit permission to test.
+
 ## Author
 
 **MonikaKS545**
+GitHub: https://github.com/MonikaKS545
