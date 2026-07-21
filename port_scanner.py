@@ -14,11 +14,18 @@ common_ports = {
 
 print("=== Python Port Scanner ===")
 
-target = input("Enter IP address or domain: ")
+target = input("Enter IP address or domain: ").strip()
 
 try:
     start_port = int(input("Enter Start Port: "))
     end_port = int(input("Enter End Port: "))
+    if start_port < 1 or end_port > 65535:
+        print("Error: Port numbers must be between 1 and 65535.")
+        exit()
+    
+    if start_port > end_port:
+        print("Error: Start port must be less than or equal to End Port.")
+        exit()
 
     ip = socket.gethostbyname(target)
 
@@ -27,6 +34,7 @@ try:
     print("-" * 40)
 
     start_time = time.time()
+    open_ports = 0
 
     for port in range(start_port, end_port + 1):
 
@@ -37,6 +45,7 @@ try:
         result = s.connect_ex((ip, port))
 
         if result == 0:
+            open_ports += 1
             service = common_ports.get(port, "Unknown")
             print(f"Port {port} ({service}) is OPEN")
 
@@ -45,6 +54,7 @@ try:
     end_time = time.time()
 
     print("-" * 40)
+    print(f"Open ports found: {open_ports}")
     print(f"Scan completed in {end_time - start_time:.2f} seconds")
 
 except socket.gaierror:
